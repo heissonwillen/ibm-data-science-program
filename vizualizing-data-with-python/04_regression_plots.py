@@ -1,11 +1,5 @@
-import numpy as np
 import pandas as pd 
-import PIL as Image
-
-import matplotlib as mpl 
 import matplotlib.pyplot as plt 
-# import matplotlib.patches as mpatches
-
 import seaborn as sns
 
 df_can = pd.read_excel(
@@ -22,9 +16,6 @@ df_can.set_index('Country', inplace=True)
 df_can['Total'] = df_can.sum(axis=1)
 
 years = list(map(str, range(1980, 2014)))
-
-# mpl.style.use('ggplot')
-# df_dsn = df_can.loc[['Denmark', 'Norway', 'Sweden'], :]
 
 df_tot = pd.DataFrame(df_can[years].sum(axis=0))
 df_tot.index = map(float, df_tot.index)
@@ -49,6 +40,5 @@ ax.set(
 	)
 
 ax.set_title('Total immigration to Canada from 1980 - 2013')
-
 
 plt.show()
